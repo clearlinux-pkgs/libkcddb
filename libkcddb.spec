@@ -5,21 +5,21 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkcddb
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/libkcddb-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/libkcddb-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/libkcddb-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/libkcddb-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/libkcddb-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/libkcddb-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
-Requires: libkcddb-lib
-Requires: libkcddb-data
-Requires: libkcddb-license
-Requires: libkcddb-locales
+Requires: libkcddb-data = %{version}-%{release}
+Requires: libkcddb-lib = %{version}-%{release}
+Requires: libkcddb-license = %{version}-%{release}
+Requires: libkcddb-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -35,9 +35,9 @@ data components for the libkcddb package.
 %package dev
 Summary: dev components for the libkcddb package.
 Group: Development
-Requires: libkcddb-lib
-Requires: libkcddb-data
-Provides: libkcddb-devel
+Requires: libkcddb-lib = %{version}-%{release}
+Requires: libkcddb-data = %{version}-%{release}
+Provides: libkcddb-devel = %{version}-%{release}
 
 %description dev
 dev components for the libkcddb package.
@@ -54,8 +54,8 @@ doc components for the libkcddb package.
 %package lib
 Summary: lib components for the libkcddb package.
 Group: Libraries
-Requires: libkcddb-data
-Requires: libkcddb-license
+Requires: libkcddb-data = %{version}-%{release}
+Requires: libkcddb-license = %{version}-%{release}
 
 %description lib
 lib components for the libkcddb package.
@@ -78,28 +78,28 @@ locales components for the libkcddb package.
 
 
 %prep
-%setup -q -n libkcddb-18.08.0
+%setup -q -n libkcddb-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535235834
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549876911
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535235834
+export SOURCE_DATE_EPOCH=1549876911
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/libkcddb
-cp COPYING %{buildroot}/usr/share/doc/libkcddb/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/libkcddb/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/libkcddb/COPYING.LIB
-cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/libkcddb/cmake_COPYING-CMAKE-SCRIPTS
+mkdir -p %{buildroot}/usr/share/package-licenses/libkcddb
+cp COPYING %{buildroot}/usr/share/package-licenses/libkcddb/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/libkcddb/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libkcddb/COPYING.LIB
+cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libkcddb/cmake_COPYING-CMAKE-SCRIPTS
 pushd clr-build
 %make_install
 popd
@@ -187,11 +187,11 @@ popd
 /usr/lib64/qt5/plugins/kcm_cddb.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/libkcddb/COPYING
-/usr/share/doc/libkcddb/COPYING.DOC
-/usr/share/doc/libkcddb/COPYING.LIB
-/usr/share/doc/libkcddb/cmake_COPYING-CMAKE-SCRIPTS
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/libkcddb/COPYING
+/usr/share/package-licenses/libkcddb/COPYING.DOC
+/usr/share/package-licenses/libkcddb/COPYING.LIB
+/usr/share/package-licenses/libkcddb/cmake_COPYING-CMAKE-SCRIPTS
 
 %files locales -f kcmcddb.lang -f libkcddb.lang
 %defattr(-,root,root,-)
