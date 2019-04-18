@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkcddb
-Version  : 18.12.3
-Release  : 4
-URL      : https://download.kde.org/stable/applications/18.12.3/src/libkcddb-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/libkcddb-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/libkcddb-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 5
+URL      : https://download.kde.org/stable/applications/19.04.0/src/libkcddb-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/libkcddb-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/libkcddb-19.04.0.tar.xz.sig
 Summary  : KDE CDDB library
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -79,14 +79,14 @@ locales components for the libkcddb package.
 
 
 %prep
-%setup -q -n libkcddb-18.12.3
+%setup -q -n libkcddb-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555353919
+export SOURCE_DATE_EPOCH=1555623257
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -94,7 +94,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555353919
+export SOURCE_DATE_EPOCH=1555623257
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkcddb
 cp COPYING %{buildroot}/usr/share/package-licenses/libkcddb/COPYING
