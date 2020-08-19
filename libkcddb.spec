@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkcddb
-Version  : 20.04.2
-Release  : 20
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/libkcddb-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/libkcddb-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/libkcddb-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 21
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/libkcddb-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/libkcddb-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/libkcddb-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -81,15 +81,15 @@ locales components for the libkcddb package.
 
 
 %prep
-%setup -q -n libkcddb-20.04.2
-cd %{_builddir}/libkcddb-20.04.2
+%setup -q -n libkcddb-20.08.0
+cd %{_builddir}/libkcddb-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591891887
+export SOURCE_DATE_EPOCH=1597795871
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,17 +101,17 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591891887
+export SOURCE_DATE_EPOCH=1597795871
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkcddb
-cp %{_builddir}/libkcddb-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/libkcddb/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/libkcddb-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/libkcddb/fcbf818f92ef8679a88f3778b12b4c8b5810545b
-cp %{_builddir}/libkcddb-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkcddb/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/libkcddb-20.04.2/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libkcddb/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/libkcddb-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/libkcddb/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/libkcddb-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/libkcddb/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/libkcddb-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkcddb/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/libkcddb-20.08.0/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libkcddb/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -130,14 +130,12 @@ popd
 %defattr(-,root,root,-)
 /usr/include/KF5/KCddb/Categories
 /usr/include/KF5/KCddb/Cdinfo
-/usr/include/KF5/KCddb/CdinfoDialog
 /usr/include/KF5/KCddb/Client
 /usr/include/KF5/KCddb/Genres
 /usr/include/KF5/KCddb/Kcddb
 /usr/include/KF5/KCddb/KcddbConfig
 /usr/include/KF5/KCddb/categories.h
 /usr/include/KF5/KCddb/cdinfo.h
-/usr/include/KF5/KCddb/cdinfodialog.h
 /usr/include/KF5/KCddb/client.h
 /usr/include/KF5/KCddb/configbase.h
 /usr/include/KF5/KCddb/genres.h
@@ -150,16 +148,12 @@ popd
 /usr/lib64/cmake/KF5Cddb/KF5CddbTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5Cddb/KF5CddbTargets.cmake
 /usr/lib64/libKF5Cddb.so
-/usr/lib64/libKF5CddbWidgets.so
 /usr/lib64/qt5/mkspecs/modules/qt_KCddb.pri
 
 %files doc
 %defattr(0644,root,root,0755)
 /usr/share/doc/HTML/ca/kcontrol/cddbretrieval5/index.cache.bz2
 /usr/share/doc/HTML/ca/kcontrol/cddbretrieval5/index.docbook
-/usr/share/doc/HTML/ca/kcontrol/cddbretrieval5/kscd13.png
-/usr/share/doc/HTML/ca/kcontrol/cddbretrieval5/kscd14.png
-/usr/share/doc/HTML/ca/kcontrol/cddbretrieval5/kscd16.png
 /usr/share/doc/HTML/de/kcontrol/cddbretrieval5/index.cache.bz2
 /usr/share/doc/HTML/de/kcontrol/cddbretrieval5/index.docbook
 /usr/share/doc/HTML/de/kcontrol/cddbretrieval5/kscd14.png
@@ -194,8 +188,6 @@ popd
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Cddb.so.5
 /usr/lib64/libKF5Cddb.so.5.0.0
-/usr/lib64/libKF5CddbWidgets.so.5
-/usr/lib64/libKF5CddbWidgets.so.5.0.0
 /usr/lib64/qt5/plugins/kcm_cddb.so
 
 %files license
