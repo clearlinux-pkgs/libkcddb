@@ -1,5 +1,5 @@
 PKG_NAME := libkcddb
-URL = https://download.kde.org/stable/release-service/22.12.3/src/libkcddb-22.12.3.tar.xz
+URL = https://download.kde.org/stable/release-service/23.04.0/src/libkcddb-23.04.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
