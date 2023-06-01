@@ -7,7 +7,7 @@
 #
 Name     : libkcddb
 Version  : 23.04.1
-Release  : 51
+Release  : 52
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/libkcddb-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/libkcddb-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/libkcddb-23.04.1.tar.xz.sig
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684778191
+export SOURCE_DATE_EPOCH=1685639964
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,7 +125,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684778191
+export SOURCE_DATE_EPOCH=1685639964
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkcddb
 cp %{_builddir}/libkcddb-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkcddb/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -154,7 +154,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Cddb.so
 /usr/include/KCddb5/KCDDB/CDInfo
 /usr/include/KCddb5/KCDDB/Categories
 /usr/include/KCddb5/KCDDB/Client
@@ -229,7 +228,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Cddb.so.5
 /V3/usr/lib64/libKF5Cddb.so.5.1.0
 /V3/usr/lib64/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_cddb.so
 /usr/lib64/libKF5Cddb.so.5
